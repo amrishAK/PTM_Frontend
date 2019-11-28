@@ -1,0 +1,87 @@
+﻿<Page
+    x:Class="PTM_Frontend.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PTM_Frontend"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <RelativePanel>
+            <Button Name="hamburger_but"
+                    Width="auto"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="36"
+                    Content="&#xE700;"
+                    Click="Hamburger_but_Click"/>
+            <Button Name="back_but"
+                    RelativePanel.RightOf="hamburger_but"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="36"
+                    Content="&#xE112;"/>
+            <TextBlock Name="title_tb"
+                       RelativePanel.RightOf="back_but"
+                       FontSize="30"
+                       FontWeight="SemiBold"
+                       Text="Home"
+                       Margin="10,0,0,0" FontFamily="Segoe UI"/>
+            <Button Name="delete_db" 
+                    RelativePanel.AlignRightWithPanel="True"
+                    Content="Delete Database"
+                    FontSize="30"
+                    Visibility="Collapsed" Height="48" />
+        </RelativePanel>
+        <SplitView Name="mysplitview" 
+                   Margin="0,0,0,0"
+                   DisplayMode="CompactOverlay"
+                   CompactPaneLength="56" 
+                   OpenPaneLength="250"
+                   IsPaneOpen="False" 
+                   Grid.Row="1"
+                   Opacity="50">
+            <SplitView.Pane>
+                <ListBox SelectionMode="Single" SelectionChanged="ListBox_SelectionChanged" Background="#FFF1F1F1">
+                    <ListBoxItem Name="home">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe MDL2 Assets"
+                                       FontSize="30"
+                                       Text="&#xE80F;"/>
+                            <TextBlock Text="Home"
+                                       FontSize="26"
+                                       Margin="20,0,0,0"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="soil_humidity">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe MDL2 Assets"
+                                       FontSize="30"
+                                       Text="&#xE700;"/>
+                            <TextBlock Text="Traffic Density"
+                                       FontSize="26"
+                                       Margin="20,0,0,0"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="smoke_content">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock  FontFamily="Segoe MDL2 Assets"
+                                       FontSize="30"
+                                       Text="&#xE700;"/>
+                            <TextBlock Text="Pedestrian Crossing"
+                                       FontSize="26"
+                                       Margin="20,0,0,0"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Frame Name="myframe"/>
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
+</Page>
